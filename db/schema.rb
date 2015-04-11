@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150411090039) do
 
-  create_table "identities", force: true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
-
   create_table "questions", force: true do |t|
     t.text     "content"
     t.string   "source_url"

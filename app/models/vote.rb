@@ -10,6 +10,11 @@
 #
 
 class Vote < ActiveRecord::Base
-  belongs_to: User 
-  belongs_to: Question
+
+  validates :user_id, presence: true, uniqueness: true
+  validates :question_id, presence: true, uniqueness: true
+
+  belongs_to :question
+  belongs_to :user 
+
 end

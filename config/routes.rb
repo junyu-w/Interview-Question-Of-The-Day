@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :users do |u| 
-    resources :votes
+  resources :users 
+  resources :questions do |q|
+  	resources :votes
   end
-  resources :questions
+  get "init", to: 'questions#init'
 end
