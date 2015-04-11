@@ -27,3 +27,5 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+gem 'annotate', '~> 2.6.6'
