@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411063120) do
+ActiveRecord::Schema.define(version: 20150411065738) do
 
   create_table "questions", force: true do |t|
     t.text     "content"
-    t.integer  "votes"
     t.string   "source_url"
     t.boolean  "selected"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vote_count"
   end
 
   create_table "users", force: true do |t|

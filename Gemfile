@@ -29,3 +29,4 @@ group :production do
 end
 
 gem 'annotate', '~> 2.6.6'
+gem 'rest-client', '~> 1.8.0'
