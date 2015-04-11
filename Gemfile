@@ -29,3 +29,7 @@ group :production do
 end
 
 gem 'annotate', '~> 2.6.6'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'

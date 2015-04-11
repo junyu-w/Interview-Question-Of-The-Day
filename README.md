@@ -1,22 +1,23 @@
-Rails Devise
+Interview Question Of The Day
 ================
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Introduction
+------------
+Interview Question of The Day is a web application that gives its user different coding interview questions on each day. And it also allows user to see questions on previous days and questions of that week.
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Progress
+------------
+1. Facebook login finished
+2. Book Model added
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+TODO
+-------------
+1. Scrape question from interview quesiton website + index + show + create -- Shuotong
+2. Add "question_id_list" column to user table + update method of user -- Junyu
+3. Vote Model -- Junyu
+4. Views of questions -- Junyu
+5. Front-end -- Both
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
 
 Ruby on Rails
 -------------
@@ -28,23 +29,12 @@ This application requires:
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
-Getting Started
----------------
 
-Documentation and Support
--------------------------
+Deploy to Heroku
+--------------
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Issues
--------------
+This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
+provided by the [RailsApps Project](http://railsapps.github.io/).
 
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
