@@ -11,18 +11,19 @@ class VotesController < ApplicationController
   end
 
   def create
-    @question = Question.find(params[:id])
-    @new_vote = Vote.new(user_id: current_user.id, question_id:@question.id) 
+    @question = Question.find(params[:question_id])
+    @new_vote = Vote.new
+    @new_vote.update_attributes(:user_id => current_user.id, :question_id => @question.id) 
     if @new_vote.save
-      @quesiton.update_attribtues(:votes_count => @question.votes_count+1)
-      if @quesiton.save
-        redirect_to question_path(@quesiton)
+      @question.update_attributes(:vote_count => @question.vote_count+1)
+      if @question.save
+        redirect_to question_path(@question)
       else
         flash[:error] = @question.errors.full_messages.to_sentence
         redirect_to question_path(@question)
       end
     else
-      flash[:error] = @new_vote.errors.full_messages.to_sentence
+      flash[:error] = "You have already voted"
       redirect_to question_path(@question)
     end
   end
@@ -34,10 +35,10 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id])
     @vote = Vote.where(question_id: @question.id, user_id:current_user.id)
-    if @vote.destroy
-      @question.update_attribtues(:votes_count => @question.votes_count-1)
+    if @vote.length != 0 and @vote.destroy_all
+      @question.update_attributes(:vote_count => @question.vote_count-1)
       if @question.save
         redirect_to question_path(@question)
       else
@@ -45,7 +46,7 @@ class VotesController < ApplicationController
         redirect_to question_path(@question)
       end
     else
-      flash[:error] = @vote.errors.full_messages.to_sentence
+      flash[:error] = "You have downvoted"
       redirect_to question_path(@question)
     end
   end

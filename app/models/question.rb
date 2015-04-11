@@ -12,9 +12,10 @@
 #
 
 class Question < ActiveRecord::Base
-	validates :content, presence: true
-	validates :source_url, presence: true
-
-	belongs_to :user
+	#validates :content, presence: true
+	validates :source_url, presence: true, uniqueness: true
+	belongs_to :User
 	has_one :vote
+
+	
 end
