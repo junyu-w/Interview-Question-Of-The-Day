@@ -50,6 +50,12 @@ class VotesController < ApplicationController
     end
   end
 
+  def upvote
+  end
+
+  def destroy
+  end
+
   private
 
   def vote_params

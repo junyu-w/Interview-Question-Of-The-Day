@@ -12,18 +12,44 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-    <div
-      class="fb-like"
-      data-share="true"
-      data-width="450"
-      data-show-faces="true">
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            <% if current_user %>
+              <li>
+                <%= current_user.name %>
+              </li>
+              <li>
+                Favorite Questions
+              </li>
+              <li>Edit Account</li>
+              <li>Log Out</li>
+            <% else %>
+              <li>Sign In</li>
+              <li>Sign Up</li>
+            <% end %>
+          </ul>
+      </div>
+      <!-- sidebar -->
+      <!-- page content -->
+      <div class="page-content-wrapper">
+
+        <main role="main">
+           <%= render 'layouts/messages' %>
+           <%= yield %>
+        </main>
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="450"
+          data-show-faces="true">
+        </div>
+      </div>
     </div>
   </body>
   <script>
+  //using facebook sdk
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1644331775795217',
@@ -39,5 +65,11 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+  //sidebar toggle
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
   </script>
 </html>

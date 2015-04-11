@@ -10,6 +10,6 @@
 #
 
 class Vote < ActiveRecord::Base
-  belongs_to: User 
-  belongs_to: Question
+  belongs_to :User 
+  belongs_to :Question
 end
