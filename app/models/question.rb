@@ -17,5 +17,22 @@ class Question < ActiveRecord::Base
 	belongs_to :User
 	has_one :vote
 
-	
+        def self.feed_question_info
+          require 'rest_client'
+          @response = RestClient.get 'https://www.kimonolabs.com/api/2tepoq7s?apikey=i4ShqnRlMKnYLTe9oGyIOyef9ybz0Qnp'
+          @json = JSON.parse @response
+          @questions = @json["results"]["Questions"]
+
+          @questions.each do |q|
+            if q["Content"]["text"].length == 0
+              next
+            end
+            @question = Question.new
+            @question.content = q["Content"]["text"]
+
+            @question.source_url = q["Content"]["href"]
+            @question.vote_count = 0
+            @question.save!
+          end
+        end
 end

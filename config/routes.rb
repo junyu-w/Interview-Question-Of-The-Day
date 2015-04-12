@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   get "init", to: 'questions#init'
   get "random", to: 'visitors#random'
+  #root to: 'questions#today_question'
 end

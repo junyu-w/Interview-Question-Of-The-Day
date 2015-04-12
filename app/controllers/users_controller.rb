@@ -12,4 +12,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @today_question = params[:today_question]
+    1/0
+  end
+
 end

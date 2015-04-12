@@ -8,69 +8,71 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!--font-->
     <script src="//use.typekit.net/fjn3tcn.js"></script>
+    <script src="app/assets/javascripts/typed.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-  <main role="main" style=" 
-      margin-top: 0px;
-      height: 730px;
-      padding-top: 50px;
-  ">
+  <main role="main">
+    <div class="entire-website">
      <%= render 'layouts/messages' %>
-    <div class="row">
-    <div class="col-sm-4 col-md-2 sidebar">
-      <div class="mini-submenu">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+      <div class="row">
+      <div class="col-sm-4 col-md-2 sidebar" style="margin-top:20px;">
+        <div class="mini-submenu" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </div>
+        <div class="list-group">
+            <span href="#" class="list-group-item active">
+                Dashboard
+                <span class="pull-right" id="slide-submenu">
+                    <i class="fa fa-times"></i>
+                </span>
+            </span>
+            <% if current_user %>
+              <div class="list-group-item">
+                 <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
+              </div>
+              <div href="#" class="list-group-item">
+                <i class="fa fa-user"></i> <%= link_to current_user.name, user_path(current_user) %>
+              </div>
+              <div href="#" class="list-group-item">
+                  <i class="fa fa-folder-open-o"></i> Favorite Questions
+              </div>
+              <div href="#", class="list-group-item">
+                <i class="fa fa-edit"></i> <%= link_to "Edit Account", edit_user_registration_path(current_user) %> 
+              </div>
+              <div href="#" class="list-group-item">
+                <i class="fa fa-sign-out"></i> <%= link_to "Sign Out", destroy_user_session_path, :method=>'delete' %> 
+              </div>
+            <% else %>
+              <div class="list-group-item">
+                 <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
+              </div>
+              <div href="#" class="list-group-item">
+                <i class="fa fa-sign-in"></i> <%= link_to 'Sign In', new_user_session_path %> 
+              </div>
+              <div href="#" class="list-group-item">
+                <i class="fa fa-male"></i> <%= link_to 'Sign Up', new_user_registration_path %> 
+              </div>
+            <% end %>
+        </div>        
       </div>
-      <div class="list-group">
-          <span href="#" class="list-group-item active">
-              Dashboard
-              <span class="pull-right" id="slide-submenu">
-                  <i class="fa fa-times"></i>
-              </span>
-          </span>
-          <% if current_user %>
-            <div class="list-group-item">
-               <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
-            </div>
-            <div href="#" class="list-group-item">
-              <i class="fa fa-user"></i> <%= link_to current_user.name, user_path(current_user) %>
-            </div>
-            <div href="#" class="list-group-item">
-                <i class="fa fa-folder-open-o"></i> Favorite Questions
-            </div>
-            <div href="#", class="list-group-item">
-              <i class="fa fa-edit"></i> <%= link_to "Edit Account", edit_user_registration_path(current_user) %> 
-            </div>
-            <div href="#" class="list-group-item">
-              <i class="fa fa-sign-out"></i> <%= link_to "Sign Out", destroy_user_session_path, :method=>'delete' %> 
-            </div>
-          <% else %>
-            <div class="list-group-item">
-               <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
-            </div>
-            <div href="#" class="list-group-item">
-              <i class="fa fa-sign-in"></i> <%= link_to 'Sign In', new_user_session_path %> 
-            </div>
-            <div href="#" class="list-group-item">
-              <i class="fa fa-male"></i> <%= link_to 'Sign Up', new_user_registration_path %> 
-            </div>
-          <% end %>
-      </div>        
+      
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      
+      <div class="col-md-2"></div>
+      
+      </main>
     </div>
-
-    <div class="col-md-8">
-      <%= yield %>
-    </div>
-
-    <div class="col-md-2"></div>
-
-    </main>
   </body>
+  <!--readmore.js -->
   <script>
     window.fbAsyncInit = function() {
       FB.init({
