@@ -2,3 +2,6 @@
 
 <p> <%= @question.content %> </p>
 <p> <%= link_to "source", @question.source_url %> </p>
+<p> Vote:<%= @question.vote_count%></p>
+<%= link_to "Upvote", question_votes_path(@question), method: :post %>
+<%= link_to "Downvote", question_vote_path(@question, Vote.where(:question_id => @question, :user_id => current_user.id)), method: :delete %>
