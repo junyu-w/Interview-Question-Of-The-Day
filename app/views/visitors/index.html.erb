@@ -25,7 +25,7 @@
 </div>
 <div class="two-buttons-wrapper">
   <% if current_user %>
-    <button class="btn btn-lg btn-default favorite-button hvr-sweep-to-right"><%= link_to "Favorite", user_path(current_user), method: :patch %></button>
+    <button class="btn btn-lg btn-default favorite-button hvr-sweep-to-right">Favorite</button>
   <% end %>
   <button class="btn btn-lg btn-default get-more-button hvr-sweep-to-right"><%= link_to "Get More", questions_path %></button>
 </div>
