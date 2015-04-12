@@ -1,9 +1,21 @@
-<h1>Possible Questions of the Week</h1>
-<% count = 1%>
+<h1 class="title">Possible Questions of the Week</h1>
+<%= will_paginate @questions, renderer: BootstrapPagination::Rails %>
 <% @questions.each do |q|%>
-	<p><%= count%></p>
-	<% count+=1%>
-	<p><%= q.content%></p>
-	<p><%= link_to q.source_url, q.source_url%></p>
-	<p> Vote:<%= q.vote_count%></p>
+  <div class="panel panel-default question-index-panel">
+    <div class="panel-body">
+      <div class="col-md-1" style="
+      ">
+        <div class="thumb-up-logo">
+          <i class="fa fa-thumbs-o-up fa-2x"></i> 
+        </div>
+        <div style="text-align:center">
+          <%= q.vote_count %>
+        </div>
+      </div>
+      <div class="col-md-11">
+        <p><%= q.content%></p>
+        <p><%= link_to q.source_url, q.source_url%></p>
+      </div>
+    </div>
+  </div>
 <% end %> 

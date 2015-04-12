@@ -1,7 +1,7 @@
 class VisitorsController < ApplicationController
   @@random_nums = Array.new(7)
-
-  def random
+     
+  def self.set_random
       @@random_nums = Array.new(7)
       $random_agent = Random.new
       $i= 0
@@ -9,10 +9,15 @@ class VisitorsController < ApplicationController
         @@random_nums[$i] =  $random_agent.rand(1..Question.count)
         $i+=1
       end
+      return @@random_nums
   end
 
   def self.getRandom
-  		return @@random_nums
+    if @@random_nums[0] == nil
+      return VisitorsController.set_random
+    else
+      return @@random_nums
+    end
   end
 
   def index
@@ -20,7 +25,9 @@ class VisitorsController < ApplicationController
       @today_name = ""
       @today_question = nil
 
-
+      if Question.all.length == 0
+        Question.new
+      end
       @question_M = Question.find(VisitorsController.getRandom[0])
       @question_T = Question.find(VisitorsController.getRandom[1])
       @question_W = Question.find(VisitorsController.getRandom[2])
@@ -52,10 +59,6 @@ class VisitorsController < ApplicationController
       	@today_name = "Sunday"
       	@today_question = @question_SS
       end
-
-
-
-      
   end
 
 end

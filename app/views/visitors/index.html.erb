@@ -1,8 +1,8 @@
-<h1 class="title-of-day">Interview Question For <%= @today_name %></h1>
+<h1 class="title">Interview Question For <%= @today_name %></h1>
 <br><br>
   <span id = "typer" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWant the Internship from </span>
 <span id= "typer-cursor"> </span>
-<div class="panel panel-success question-of-day-panel">
+<div class="panel panel-success question-panel">
   <div class="panel-body">
     <div class="col-md-2">
       <div class="vote chev">
@@ -23,4 +23,9 @@
     </div>
   </div>
 </div>
-
+<div class="two-buttons-wrapper">
+  <% if current_user %>
+    <button class="btn btn-lg btn-default favorite-button hvr-sweep-to-right"><%= link_to "Favorite", user_path(current_user), method: :patch %></button>
+  <% end %>
+  <button class="btn btn-lg btn-default get-more-button hvr-sweep-to-right"><%= link_to "Get More", questions_path %></button>
+</div>

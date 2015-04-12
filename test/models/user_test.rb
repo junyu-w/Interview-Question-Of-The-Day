@@ -18,6 +18,7 @@
 #  name                   :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
+#  is_admin               :boolean
 #
 
 require 'test_helper'
