@@ -54,9 +54,14 @@ $(document).ready(function() {
 
   //typed.js
   $("#typer").typed({
-    strings: ["Google?", "Twitter?", "Facebook?", "dream companies? Here is Interview Question of Today!"],
+    strings: ["Google?", "Twitter?", "Facebook?", "dream companies? Here is the\n Interview Question of Today!"],
     typeSpeed: 100,
     backDelay: 500
    });
+
+  //tooltip 
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 });

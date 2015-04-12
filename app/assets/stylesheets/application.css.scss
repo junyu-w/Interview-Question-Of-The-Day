@@ -118,7 +118,7 @@ $radius : 1rem; /* try 50% */
 $transition : .3s;
 
 $bg : #F6F3E4;
-$green : #4BC35F;
+$green : #199E10;
 $red : #C15044;
 
 
@@ -213,16 +213,17 @@ body {
 #typer{
   text-align: center;
   font-family: "Open Sans";
-  font-weight: 600;
+  font-weight: 700;
   color: white;
   font-size: large;
   margin-top: 100em;
+  typeSpeed: 80;
+  backDelay: 500;
 }
 
 #typed-cursor{
   opacity: 1;
   text-align: center;
-  font-family: "Open Sans";
   font-weight: 900;
   font-size: large;
   color: white;
@@ -302,6 +303,7 @@ body {
   transform: scaleX(1);
 }
 
-a {
-  color: black;
+.fb-login-button {
+  background: url("app/assets/images/fb_button.png") no-repeat;
+  background-size: 100%;
 }

@@ -13,8 +13,6 @@ class QuestionsController < ApplicationController
       @question = Question.new
       @question.content = q["Content"]["text"]
 
-      puts @question.content
-
       @question.source_url = q["Content"]["href"]
       @question.vote_count = 0
       @question.save!

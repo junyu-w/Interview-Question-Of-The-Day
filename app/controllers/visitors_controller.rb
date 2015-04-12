@@ -3,10 +3,13 @@ class VisitorsController < ApplicationController
      
   def self.set_random
       @@random_nums = Array.new(7)
-      $random_agent = Random.new
+#      $random_agent = Random.new
       $i= 0
+      if Question.count < 0
+        Question.feed_question_info
+      end
       while $i < 7 do
-        @@random_nums[$i] =  $random_agent.rand(1..Question.count)
+        @@random_nums[$i] =  1+Random.rand(Question.count)
         $i+=1
       end
       return @@random_nums
@@ -26,7 +29,7 @@ class VisitorsController < ApplicationController
       @today_question = nil
 
       if Question.all.length == 0
-        Question.new
+        Question.feed_question_info
       end
       @question_M = Question.find(VisitorsController.getRandom[0])
       @question_T = Question.find(VisitorsController.getRandom[1])

@@ -7,7 +7,7 @@
     <div class="col-md-2">
       <div class="vote chev">
         <div class="increment up">
-          <%= link_to "____", question_votes_path(@today_question), method: :post %>
+          <%= link_to ".  . .  .  .", question_votes_path(@today_question), method: :post %>
         </div>
         <div class="increment down">
           <% if current_user %>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-10 question-content">
       <p><%= @today_question.content %> </p>
-      <%= link_to "Source", @today_question.source_url%>
+      <%= link_to "Source", @today_question.source_url %>
     </div>
   </div>
 </div>
