@@ -3,20 +3,7 @@ Interview Question Of The Day
 
 Introduction
 ------------
-Interview Question of The Day is a web application that gives its user different coding interview questions on each day. And it also allows user to see questions on previous days and questions of that week.
-
-Progress
-------------
-1. Facebook login finished
-2. Book Model added
-
-TODO
--------------
-1. Scrape question from interview quesiton website + index + show + create -- Shuotong
-2. Add "question_id_list" column to user table + update method of user -- Junyu
-3. Vote Model -- Junyu
-4. Views of questions -- Junyu
-5. Front-end -- Both
+Interview Question of The Day is a web application that gives its user different coding interview questions on each day. And it also allows user to see questions on previous days and questions of that week. -- By Junyu Wang & Shuotong Wu
 
 
 Ruby on Rails
