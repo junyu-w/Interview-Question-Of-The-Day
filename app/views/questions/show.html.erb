@@ -1,7 +1,23 @@
-<h1>Questions#show</h1>
 
-<p> <%= @question.content %> </p>
-<p> <%= link_to "source", @question.source_url %> </p>
-<p> Vote:<%= @question.vote_count%></p>
-<%= link_to "Upvote", question_votes_path(@question), method: :post %>
-<%= link_to "Downvote", question_vote_path(@question, Vote.where(:question_id => @question, :user_id => current_user.id)), method: :delete %>
+<h1 class="title-of-day">Interview Question Of <%= @today_name %></h1>
+<div class="panel panel-success question-of-day-panel">
+  <div class="panel-body">
+    <div class="col-md-2">
+      <div class="vote chev">
+        <div class="increment up">
+          <%= link_to "____", question_votes_path(@question), method: :post %>
+        </div>
+        <div class="increment down">
+          <% if current_user %>
+           <%= link_to " . . . . . . .  ", question_vote_path(@question, Vote.where(:question_id => @question.id, :user_id => current_user.id)), method: :delete %>
+          <% end %>
+        </div>
+        <div class="count"><p><%= @question.vote_count %></p></div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <p><%= @question.content %> </p>
+      <%= link_to "Source", @question.source_url%>
+    </div>
+  </div>
+</div>

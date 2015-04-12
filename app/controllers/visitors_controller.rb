@@ -2,18 +2,13 @@ class VisitorsController < ApplicationController
   @@random_nums = Array.new(7)
 
   def random
-    if current_user and current_user.is_admin != nil
-  	  @@random_nums = Array.new(7)
+      @@random_nums = Array.new(7)
       $random_agent = Random.new
       $i= 0
       while $i < 7 do
         @@random_nums[$i] =  $random_agent.rand(1..Question.count)
         $i+=1
       end
-     else
-    	flash[:error] = "You need to be admin user"
-     	redirect_to new_user_session_path
-     end
   end
 
   def self.getRandom
@@ -21,9 +16,9 @@ class VisitorsController < ApplicationController
   end
 
   def index
-  	  @today_num = Date.today.cwday
-  	  @today_name = ""
-  	  @today_question = nil
+      @today_num = Date.today.cwday
+      @today_name = ""
+      @today_question = nil
 
 
       @question_M = Question.find(VisitorsController.getRandom[0])

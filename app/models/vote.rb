@@ -11,9 +11,8 @@
 
 class Vote < ActiveRecord::Base
 
-  validates :user_id, presence: true, uniqueness: true
-  validates :question_id, presence: true, uniqueness: true
-
+  validates :user_id, presence: true
+  validates :question_id, presence: true
   belongs_to :question
   belongs_to :user 
 
