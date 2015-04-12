@@ -16,45 +16,45 @@
 //= require bootstrap-sprockets
 //= require_tree .
 $(document).ready(function() {
-//for submenu
-$(function(){
-
-	$('#slide-submenu').on('click',function() {			        
+  //for submenu
+  $(function(){
+      $('#slide-submenu').on('click',function() {			        
+        console.log("close")
         $(this).closest('.list-group').fadeOut('slide',function(){
-        	$('.mini-submenu').fadeIn();	
+            $('.mini-submenu').fadeIn();	
         });
-        
       });
 
-	$('.mini-submenu').on('click',function(){		
+      $('.mini-submenu').on('click',function(){		
+        console.log("open")
         $(this).next('.list-group').toggle('slide');
         $('.mini-submenu').hide();
-	})
-})
+      })
+  })
 
-//for upvote downvote
-$(function(){
-  $(".increment").click(function(){
-    var count = parseInt($("~ .count", this).text());
-    
-    if($(this).hasClass("up")) {
+  //for upvote downvote
+  $(function(){
+    $(".increment").click(function(){
+      var count = parseInt($("~ .count", this).text());
       
-       $("~ .count", this).text(count);
-    } else {
-       $("~ .count", this).text(count);     
-    }
-    
-    $(this).parent().addClass("bump");
-    
-    setTimeout(function(){
-      $(this).parent().removeClass("bump");    
-    }, 400);
+      if($(this).hasClass("up")) {
+        
+         $("~ .count", this).text(count);
+      } else {
+         $("~ .count", this).text(count);     
+      }
+      
+      $(this).parent().addClass("bump");
+      
+      setTimeout(function(){
+        $(this).parent().removeClass("bump");    
+      }, 400);
+    });
   });
-});
 
-$("#typer").typed({
-strings: ["Google?", "Twitter?", "Facebook?", "dream companies? Here is Interview Question of Today!"],
- typeSpeed: 100,
- backDelay: 500
- });
+  $("#typer").typed({
+    strings: ["Google?", "Twitter?", "Facebook?", "dream companies? Here is Interview Question of Today!"],
+    typeSpeed: 100,
+    backDelay: 500
+   });
 });
