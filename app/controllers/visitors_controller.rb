@@ -1,5 +1,66 @@
 class VisitorsController < ApplicationController
-  def index
-    #where we are going to put question of the day
+  @@random_nums = Array.new(7)
+
+  def random
+    if current_user and current_user.is_admin != nil
+  	  @@random_nums = Array.new(7)
+      $random_agent = Random.new
+      $i= 0
+      while $i < 7 do
+        @@random_nums[$i] =  $random_agent.rand(1..Question.count)
+        $i+=1
+      end
+     else
+    	flash[:error] = "You need to be admin user"
+     	redirect_to new_user_session_path
+     end
   end
+
+  def self.getRandom
+  		return @@random_nums
+  end
+
+  def index
+  	  @today_num = Date.today.cwday
+  	  @today_name = ""
+  	  @today_question = nil
+
+
+      @question_M = Question.find(VisitorsController.getRandom[0])
+      @question_T = Question.find(VisitorsController.getRandom[1])
+      @question_W = Question.find(VisitorsController.getRandom[2])
+      @question_TT = Question.find(VisitorsController.getRandom[3])
+      @question_F = Question.find(VisitorsController.getRandom[4])
+      @question_S = Question.find(VisitorsController.getRandom[5])
+      @question_SS = Question.find(VisitorsController.getRandom[6])
+
+      case @today_num
+      when 1
+      	@today_name = "Monday"
+      	@today_question = @question_M
+      when 2
+      	@today_name = "Tuesday"
+      	@today_question = @question_T
+      when 3
+      	@today_name = "Wednesday"
+      	@today_question = @question_W
+      when 4
+      	@today_name = "Thursday"
+      	@today_question = @question_TT
+      when 5
+      	@today_name = "Friday"
+      	@today_question = @question_F
+      when 6
+      	@today_name = "Saturday"
+      	@today_question = @question_S							
+      when 7
+      	@today_name = "Sunday"
+      	@today_question = @question_SS
+      end
+
+
+
+      
+  end
+
 end

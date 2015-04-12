@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   	resources :votes
   end
   get "init", to: 'questions#init'
+  get "random", to: 'visitors#random'
 end
