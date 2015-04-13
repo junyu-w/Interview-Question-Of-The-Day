@@ -3,7 +3,7 @@ Interview Question Of The Day
 
 Introduction
 ------------
-Interview Question of The Day is a web application that gives its user different coding interview questions on each day. And it also allows user to see questions on previous days and questions of that week. -- By Junyu Wang & Shuotong Wu
+[Interview Question of The Day](http://infinite-earth-2412.herokuapp.com) is a web application that gives its user different coding interview questions on each day. And it also allows user to see questions on previous days and questions of that week. -- By Junyu Wang & Shuotong Wu
 
 
 Ruby on Rails
