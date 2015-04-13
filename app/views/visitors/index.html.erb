@@ -27,5 +27,5 @@
   <% if current_user %>
     <button class="btn btn-lg btn-default favorite-button hvr-sweep-to-right">Favorite</button>
   <% end %>
-  <button class="btn btn-lg btn-default get-more-button hvr-sweep-to-right"><%= link_to "Get More", questions_path %></button>
+  <%= link_to "Get More", questions_path, {:class => "btn btn-default btn-lg get-more-button hvr-sweep-to-right"} %>
 </div>
