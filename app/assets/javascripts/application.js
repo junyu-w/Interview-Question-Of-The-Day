@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-$(document).ready(function() {
+var ready = function() {
   //for submenu
   $(function(){
       $('#slide-submenu').on('click',function() {			        
@@ -63,5 +63,6 @@ $(document).ready(function() {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+};
 
-});
+$(document).ready(ready);
