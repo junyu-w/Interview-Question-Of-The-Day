@@ -1,4 +1,8 @@
 <h1 class="title">Possible Questions of the Week</h1>
+<% @questions.each do |a| %>
+  <%= a.id %>
+<% end %>
+
 <%= will_paginate @questions, renderer: BootstrapPagination::Rails %>
 <% @questions.each do |q|%>
   <div class="panel panel-default question-index-panel">
