@@ -6,10 +6,14 @@
     <div class="panel-body">
       <div class="col-md-1" style="
       ">
-      <%= link_to "", question_votes_path(q), {:method => "post", :class => "hvr-wobble-vertical fa fa-thumbs-o-up fa-2x vote-up-icon"} %>
-        <div style="text-align:center">
-          <%= q.vote_count %>
-        </div>
+      <div class="thumb-up-container">
+          <%= link_to "", question_votes_path(q), {:method => "post", :class => "hvr-wobble-vertical fa fa-thumbs-o-up fa-2x vote-up-icon"} %>
+          <div style="text-align:center">
+            <b>
+              <%= q.vote_count %>
+            </b>
+          </div>
+      </div>
       </div>
       <div class="col-md-11">
         <p><%= q.content%></p>
