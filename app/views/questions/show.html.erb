@@ -7,14 +7,8 @@
   <div class="panel-body">
     <div class="col-md-2">
       <div class="vote chev">
-        <div class="increment up">
-          <%= link_to "____", question_votes_path(@question), method: :post %>
-        </div>
-        <div class="increment down">
-          <% if current_user %>
-           <%= link_to " . . . . . . .  ", question_vote_path(@question, Vote.where(:question_id => @question.id, :user_id => current_user.id)), method: :delete %>
-          <% end %>
-        </div>
+        <%= link_to "", question_votes_path(@question), {:method => "post", :class => "increment up hvr-wobble-up"} %>
+        <%= link_to "", question_vote_path(@question, Vote.where(:question_id => @question.id, :user_id => current_user)), {:method => "delete",:class => "increment down"} %>
         <div class="count"><p><%= @question.vote_count %></p></div>
       </div>
     </div>

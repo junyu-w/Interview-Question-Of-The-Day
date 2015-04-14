@@ -28,39 +28,29 @@ class VisitorsController < ApplicationController
       @today_name = ""
       @today_question = nil
 
-      if Question.all.length == 0
-        Question.feed_question_info
-      end
-      @question_M = Question.find(VisitorsController.getRandom[0])
-      @question_T = Question.find(VisitorsController.getRandom[1])
-      @question_W = Question.find(VisitorsController.getRandom[2])
-      @question_TT = Question.find(VisitorsController.getRandom[3])
-      @question_F = Question.find(VisitorsController.getRandom[4])
-      @question_S = Question.find(VisitorsController.getRandom[5])
-      @question_SS = Question.find(VisitorsController.getRandom[6])
-
+      @question_array = Question.getWeeklyQuestionArray
       case @today_num
       when 1
       	@today_name = "Monday"
-      	@today_question = @question_M
+      	@today_question = @question_array[0] 
       when 2
       	@today_name = "Tuesday"
-      	@today_question = @question_T
+      	@today_question = @question_array[1] 
       when 3
       	@today_name = "Wednesday"
-      	@today_question = @question_W
+      	@today_question = @question_array[2] 
       when 4
       	@today_name = "Thursday"
-      	@today_question = @question_TT
+      	@today_question = @question_array[3] 
       when 5
       	@today_name = "Friday"
-      	@today_question = @question_F
+      	@today_question = @question_array[4] 
       when 6
       	@today_name = "Saturday"
-      	@today_question = @question_S							
+      	@today_question = @question_array[5] 
       when 7
       	@today_name = "Sunday"
-      	@today_question = @question_SS
+      	@today_question = @question_array[6] 
       end
   end
 

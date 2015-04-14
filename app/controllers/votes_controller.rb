@@ -14,7 +14,7 @@ class VotesController < ApplicationController
     @question = Question.find(params[:question_id])
     if current_user == nil
       flash[:error] = "You should sign in first"
-      redirect_to question_path(@question) 
+      redirect_to(:back) 
       return 
     end
     @new_vote = Vote.new
@@ -23,14 +23,14 @@ class VotesController < ApplicationController
       @new_vote.save
       @question.update_attributes(:vote_count => @question.vote_count+1)
       if @question.save
-        redirect_to question_path(@question)
+        redirect_to(:back) 
       else
         flash[:error] = @question.errors.full_messages.to_sentence
-        redirect_to question_path(@question)
+        redirect_to(:back)
       end
     else
       flash[:error] = "You have already voted"
-      redirect_to question_path(@question)
+      redirect_to(:back)
     end
   end
 
@@ -44,21 +44,21 @@ class VotesController < ApplicationController
     @question = Question.find(params[:question_id])
     if current_user == nil
       flash[:error] = "You should sign in first"
-      redirect_to question_path(@question) 
+      redirect_to(:back)
       return 
     end
     @vote = Vote.where(question_id: @question.id, user_id:current_user.id)
     if @vote.length != 0 and @vote.destroy_all
       @question.update_attributes(:vote_count => @question.vote_count-1)
       if @question.save
-        redirect_to question_path(@question)
+        redirect_to(:back)
       else
         flash[:error] = @question.errors.full_messages.to_sentence
-        redirect_to question_path(@question)
+        redirect_to(:back) 
       end
     else
       flash[:error] = "You have downvoted"
-      redirect_to question_path(@question)
+      redirect_to(:back)
     end
   end
 
