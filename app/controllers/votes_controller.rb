@@ -22,7 +22,6 @@ class VotesController < ApplicationController
       @new_vote.update_attributes(:user_id => current_user.id, :question_id => @question.id) 
       @new_vote.save
       @question.update_attributes(:vote_count => @question.vote_count+1)
-      1/0
       if @question.save
         redirect_to(:back) 
       else
