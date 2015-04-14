@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   
   def index
 #    @questions = Question.all
-    @questions = Question.paginate(:page => params[:page], :per_page => 3)
+    @questions = Question.paginate(:page => params[:page], :per_page => 3).order("id DESC")
   end
 
   def show
