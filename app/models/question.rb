@@ -37,10 +37,6 @@ class Question < ActiveRecord::Base
     end
 
     def self.getWeeklyQuestionArray
-      today_num = Date.today.cwday
-      today_name = ""
-      today_question = nil
-
       if Question.all.length == 0
         Question.feed_question_info
       end

@@ -1,8 +1,10 @@
 
 <h1 class="title">Interview Question Of <%= @today_name %></h1>
 <br><br>
-  <span id = "typer" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWant the Internship from </span>
-<span id= "typer-cursor"> </span>
+<div class="typer-container">
+  <span id = "typer" >Want the Internship from </span>
+  <span id= "typer-cursor"> </span>
+</div>
 <div class="panel panel-success question-panel">
   <div class="panel-body">
     <div class="col-md-2">
@@ -22,6 +24,8 @@
   <% if current_user %>
     <button class="btn btn-lg btn-default favorite-button hvr-sweep-to-right">Favorite</button>
   <% end %>
-  <%= link_to "Get More", questions_path, {:class => "btn btn-default btn-lg get-more-button hvr-sweep-to-right"} %>
+  <%= link_to questions_path, {:class => "btn btn-default btn-lg get-more-button hvr-sweep-to-right", :method => "get" } do %>
+    <i class="fa fa-book"></i> Get More
+  <% end %>
 </div>
 

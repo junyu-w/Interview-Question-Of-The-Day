@@ -57,7 +57,7 @@ class VotesController < ApplicationController
         redirect_to(:back) 
       end
     else
-      flash[:error] = "You have downvoted"
+      flash[:error] = "You are trying to give negative score or you have downvoted"
       redirect_to(:back)
     end
   end

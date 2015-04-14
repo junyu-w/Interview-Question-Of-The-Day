@@ -32,8 +32,6 @@
       #bg {position:absolute; z-index:-1;}
       #content {position:static;}
     </style>
-
-
   </head>
   <body>
   <main role="main">
@@ -61,7 +59,7 @@
                 <i class="fa fa-user"></i> <%= link_to current_user.name, user_path(current_user) %>
               </div>
               <div href="#" class="list-group-item">
-                  <i class="fa fa-folder-open-o"></i> Favorite Questions
+                  <i class="fa fa-star-o"></i><a href="#"> Favorite Questions</a>
               </div>
               <div href="#", class="list-group-item">
                 <i class="fa fa-edit"></i> <%= link_to "Edit Account", edit_user_registration_path(current_user) %> 

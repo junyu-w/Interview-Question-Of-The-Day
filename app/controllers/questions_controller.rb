@@ -33,7 +33,6 @@ class QuestionsController < ApplicationController
       @today_name = "Sunday"
       @today_question = @question_SS
     end
-
   end
 
   def new

@@ -214,8 +214,12 @@ body {
 }
 
 //typing animation
-#typer{
+.typer-container  {
   text-align: center;
+}
+
+
+#typer{
   font-family: "Open Sans";
   font-weight: 700;
   color: white;
@@ -314,4 +318,6 @@ body {
   background-size: 100%;
 }
 
-
+.title-container {
+  text-align:center;
+}
