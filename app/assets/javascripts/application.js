@@ -16,7 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 var ready = function() {
-  //for submenu
+   //for submenu
   $(function(){
       $('#slide-submenu').on('click',function() {			        
         console.log("close")
