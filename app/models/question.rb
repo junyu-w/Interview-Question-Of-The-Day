@@ -14,6 +14,7 @@
 class Question < ActiveRecord::Base
 
     validates :source_url, presence: true, uniqueness: true
+    validates :content, presence: true
     belongs_to :User
     has_one :vote
 

@@ -32,3 +32,17 @@ one: {}
 #
 two: {}
 #  column: value
+#
+
+user_0:
+  email: "admin@test.com"
+  name: "admin_user"
+  is_admin: true
+
+
+<% 5.times do |n| %>
+user_<%= n %>:
+  email: <%= "user#{n}@test.com" %>
+  name: <%= "user#{n}" %>
+<% end %>
+
