@@ -24,3 +24,13 @@ two:
   votes: 1
   source_url: MyString
   selected: false
+    
+<% 50.times do |n| %>
+question_<%= n %>:
+  contents: <%= "this is question_#{n}" %>
+  votes: <%= n %>
+  source_url: <%= "https://questio#{n}.com" %>
+  selected: <% true if n%2 == 0 %>
+  user: user_<%= n % 10 %>
+<% end %>
+
